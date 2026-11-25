@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2F49FA">
+<title>电信反诈调研</title>
+<style>
+  :root{
+    --blue-1:#3550FF;
+    --blue-2:#2B45F7;
+    --blue-3:#1D39E2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    background:linear-gradient(180deg,#3550FF 0%,#2C46F8 38%,#2440EF 68%,#1D39E2 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .poster{
+    position:relative;
+    width:min(100vw, 60dvh);
+    aspect-ratio:1057/1762;
+    container-type:size;
+    overflow:hidden;
+    isolation:isolate;
+    background:
+      radial-gradient(120% 55% at 50% 60%, rgba(150,165,255,.28) 0%, rgba(150,165,255,0) 62%),
+      radial-gradient(70% 45% at 18% 22%, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 70%),
+      linear-gradient(180deg, #3550FF 0%, #2C46F8 38%, #2440EF 68%, #1D39E2 100%);
+  }
+  /* 大圆：画面中下部的那层浅色底 */
+  .disc{
+    position:absolute;
+    left:50%;
+    top:99%;
+    width:180%;
+    aspect-ratio:1;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(circle at 50% 34%, rgba(255,255,255,.10) 0%, rgba(255,255,255,.055) 58%, rgba(255,255,255,.02) 100%);
+  }
+  .deco{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .deco .stroke{
+    fill:none;
+    stroke:rgba(255,255,255,.20);
+    stroke-width:9;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .deco .soft{
+    fill:rgba(255,255,255,.09);
+    stroke:rgba(255,255,255,.20);
+    stroke-width:9;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .deco .ink{
+    fill:rgba(255,255,255,.13);
+    stroke:none;
+  }
+  .title{
+    position:absolute;
+    left:6.4%;
+    top:5.2%;
+    color:#fff;
+    font-size:7.2cqw;
+    font-weight:800;
+    letter-spacing:.015em;
+    line-height:1.1;
+    text-shadow:0 .35cqw 1.6cqw rgba(20,40,160,.28);
+  }
+  .qr-card{
+    position:absolute;
+    left:50%;
+    top:66%;
+    width:30.2%;
+    aspect-ratio:304/284;
+    transform:translateX(-50%);
+    background:#fff;
+    border-radius:.4cqw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 1.2cqw 3cqw rgba(10,20,90,.16);
+  }
+  .qr-card img{
+    width:79%;
+    height:auto;
+    display:block;
+    image-rendering:auto;
+  }
+  .hint{
+    position:absolute;
+    left:0;
+    right:0;
+    top:88.1%;
+    text-align:center;
+    color:#fff;
+    font-size:3.05cqw;
+    font-weight:500;
+    letter-spacing:.03em;
+    opacity:.96;
+  }
+  @media (max-height:420px){
+    .title{font-size:6.4cqw;}
+  }
+</style>
+</head>
+<body>
+<main class="poster">
+  <div class="disc"></div>
+
+  <svg class="deco" viewBox="0 0 1057 1762" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <!-- 铅笔 -->
+    <g transform="translate(78,905) rotate(11)">
+      <path class="soft" d="M-42 -12 L-42 -300 L0 -392 L42 -300 L42 -12 Z"/>
+      <path class="stroke" d="M-42 -300 L0 -392 L42 -300"/>
+      <path class="stroke" d="M-42 -58 L42 -58"/>
+      <path class="stroke" d="M-42 -12 L42 -12"/>
+    </g>
+
+    <!-- 放大镜 -->
+    <g transform="translate(250,836) rotate(12)">
+      <circle class="stroke" cx="0" cy="0" r="47"/>
+      <path class="stroke" d="M33 33 L82 82"/>
+    </g>
+
+    <!-- 仪表盘 -->
+    <g transform="translate(470,862)">
+      <path class="stroke" d="M-62 0 A62 62 0 0 1 62 0"/>
+      <path class="stroke" d="M-62 0 L62 0"/>
+      <path class="stroke" d="M0 0 L34 -38"/>
+    </g>
+
+    <!-- 对话气泡 -->
+    <g transform="translate(506,706)">
+      <path class="stroke" d="M-58 -52 h116 a15 15 0 0 1 15 15 v62 a15 15 0 0 1 -15 15 h-66 l-28 24 v-24 h-22 a15 15 0 0 1 -15 -15 v-62 a15 15 0 0 1 15 -15 z"/>
+      <path class="stroke" d="M-28 -18 h58"/>
+      <path class="stroke" d="M-28 12 h34"/>
+    </g>
+
+    <!-- 点赞 -->
+    <g transform="translate(706,846) scale(4.4) translate(-12.4,-11)" stroke="none">
+      <path class="ink" d="M2 20h2c.55 0 1-.45 1-1v-9c0-.55-.45-1-1-1H2v11zm19.83-7.12c.11-.25.17-.52.17-.8V11c0-1.1-.9-2-2-2h-5.5l.92-4.65c.05-.22.02-.46-.08-.66-.23-.45-.52-.86-.88-1.22L14 2 7.59 8.41C7.21 8.79 7 9.3 7 9.83v7.84C7 18.95 8.05 20 9.34 20h8.11c.7 0 1.36-.37 1.72-.97l2.66-6.15z"/>
+    </g>
+
+    <!-- 上升折线 -->
+    <g transform="translate(872,646)">
+      <path class="stroke" d="M-92 64 L-46 12 L-10 46 L44 -26"/>
+      <path class="stroke" d="M14 -26 L44 -26 L44 4"/>
+    </g>
+
+    <!-- 清单板 -->
+    <g transform="translate(922,1064) rotate(-7)">
+      <rect class="stroke" x="-96" y="-146" width="192" height="292" rx="16"/>
+      <rect class="stroke" x="-34" y="-162" width="68" height="32" rx="12"/>
+      <path class="stroke" d="M-58 -74 l13 13 l22 -26"/>
+      <path class="stroke" d="M-10 -62 h58"/>
+      <path class="stroke" d="M-58 -8 l13 13 l22 -26"/>
+      <path class="stroke" d="M-10 4 h58"/>
+      <path class="stroke" d="M-58 58 l13 13 l22 -26"/>
+      <path class="stroke" d="M-10 70 h40"/>
+    </g>
+
+    <!-- 左下角 100 -->
+    <g transform="translate(222,1128) rotate(-14)">
+      <text class="ink" x="-104" y="0" font-size="128" font-weight="800" letter-spacing="-4">100</text>
+    </g>
+    <!-- 左下小气泡 -->
+    <g transform="translate(120,986) rotate(-8)">
+      <path class="stroke" d="M-34 -30 h68 a12 12 0 0 1 12 12 v26 a12 12 0 0 1 -12 12 h-34 l-20 18 v-18 h-14 a12 12 0 0 1 -12 -12 v-26 a12 12 0 0 1 12 -12 z"/>
+    </g>
+  </svg>
+
+  <h1 class="title">电信反诈调研</h1>
+
+  <figure class="qr-card">
+    <img id="qr-img" alt="电信反诈调研二维码" width="640" height="640">
+  </figure>
+
+  <p class="hint">长按图片扫码</p>
+</main>
+
+<script src="vendor/qrcode.js"></script>
+<script src="config.js"></script>
+<script>
+(function () {
+  var FALLBACK_TEXT = '反诈中心没有告诉过你不要扫来路不明的二维码吗？';
+
+  function currentUrl() {
+    return new URL('warning.html', location.href).href;
+  }
+
+  // 二维码指向哪里：优先 config.js / ?to= 指定，否则指向同站点的提醒页。
+  // 用 localhost 打开时，二维码会自动换成局域网地址，手机才扫得通。
+  function resolveTarget() {
+    if (window.QR_TARGET) return Promise.resolve(window.QR_TARGET);
+
+    var p = new URLSearchParams(location.search);
+    if (p.get('to')) return Promise.resolve(p.get('to'));
+
+    if (location.protocol !== 'http:' && location.protocol !== 'https:') {
+      return Promise.resolve(FALLBACK_TEXT);
+    }
+
+    var host = location.hostname;
+    var isLocal = host === 'localhost' || host === '127.0.0.1' || host === '::1';
+    if (!isLocal) return Promise.resolve(currentUrl());
+
+    return fetch('/__lan.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        if (j && j.ips && j.ips.length) {
+          return location.protocol + '//' + j.ips[0] + (location.port ? ':' + location.port : '') + '/warning.html';
+        }
+        return currentUrl();
+      })
+      .catch(function () { return currentUrl(); });
+  }
+
+  function draw(text) {
+    if (window.qrcode && qrcode.stringToBytesFuncs && qrcode.stringToBytesFuncs['UTF-8']) {
+      qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+    }
+    var qr = qrcode(0, 'M');
+    qr.addData(text, 'Byte');
+    qr.make();
+
+    var count = qr.getModuleCount();
+    var scale = Math.max(4, Math.ceil(640 / (count + 4)));
+    var size = (count + 4) * scale;
+    var canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = '#000000';
+    for (var r = 0; r < count; r++) {
+      for (var c = 0; c < count; c++) {
+        if (qr.isDark(r, c)) {
+          ctx.fillRect((c + 2) * scale, (r + 2) * scale, scale, scale);
+        }
+      }
+    }
+    document.getElementById('qr-img').src = canvas.toDataURL('image/png');
+  }
+
+  resolveTarget()
+    .then(function (target) {
+      try { draw(target); } catch (e) { draw(FALLBACK_TEXT); }
+    })
+    .catch(function () { draw(FALLBACK_TEXT); });
+})();
+</script>
+</body>
+</html>

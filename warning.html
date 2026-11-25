@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFF4F2">
+<title>风险提示</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{height:100%;}
+  body{
+    min-height:100%;
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+    background:
+      radial-gradient(90% 60% at 50% -10%, #FFE3DE 0%, rgba(255,227,222,0) 60%),
+      #F5F6FA;
+    color:#17181C;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:max(24px, env(safe-area-inset-top)) 20px max(32px, env(safe-area-inset-bottom));
+    -webkit-font-smoothing:antialiased;
+  }
+  .card{
+    width:100%;
+    max-width:480px;
+    min-width:0;
+    background:#fff;
+    border-radius:26px;
+    padding:34px 24px 26px;
+    text-align:center;
+    box-shadow:0 18px 50px rgba(23,24,28,.10), 0 2px 8px rgba(23,24,28,.04);
+    animation:rise .55s cubic-bezier(.2,.8,.25,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .icon{
+    width:84px;height:84px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    background:linear-gradient(160deg,#FFE7E3,#FFD3CC);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .icon::after{
+    content:"";
+    position:absolute;inset:-8px;
+    border-radius:50%;
+    border:2px solid rgba(255,77,79,.18);
+    animation:pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{transform:scale(.92);opacity:.9}
+    70%{transform:scale(1.12);opacity:0}
+    100%{opacity:0}
+  }
+  .icon svg{width:42px;height:42px;display:block;}
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.14em;
+    color:#E03E3E;
+    background:#FFF0EE;
+    border:1px solid #FFDAD5;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:16px;
+    font-weight:600;
+  }
+  h1{
+    font-size:clamp(16px,5.2vw,26px);
+    line-height:1.5;
+    font-weight:800;
+    letter-spacing:.01em;
+    margin-bottom:18px;
+    overflow-wrap:anywhere;
+  }
+  h1 em{font-style:normal;color:#E03E3E;}
+  .body{
+    text-align:left;
+    font-size:15px;
+    line-height:1.85;
+    color:#575A66;
+    margin-bottom:26px;
+  }
+  .body p + p{margin-top:10px;}
+  .body .hl{color:#17181C;font-weight:600;}
+  button{
+    width:100%;
+    border:0;
+    border-radius:16px;
+    padding:16px 18px;
+    font-size:16px;
+    font-weight:700;
+    font-family:inherit;
+    color:#fff;
+    background:linear-gradient(135deg,#FF5A57,#E23A3A);
+    box-shadow:0 10px 24px rgba(226,58,58,.28);
+    cursor:pointer;
+    transition:transform .16s ease, box-shadow .16s ease;
+  }
+  button:active{transform:scale(.985);box-shadow:0 6px 16px rgba(226,58,58,.24);}
+  .after{
+    margin-top:18px;
+    font-size:14px;
+    color:#8A8D99;
+    line-height:1.7;
+    min-height:22px;
+    transition:color .2s ease;
+  }
+  .after.show{color:#E03E3E;font-weight:600;}
+  .foot{
+    margin-top:22px;
+    font-size:12px;
+    line-height:1.7;
+    color:#A5A8B3;
+  }
+  .foot a{color:#A5A8B3;text-decoration:none;border-bottom:1px dotted #C9CCD4;}
+  @media (max-width:380px){
+    .card{padding:28px 18px 22px;border-radius:22px;}
+    .body{font-size:14px;line-height:1.8;}
+  }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="icon" aria-hidden="true">
+    <svg viewBox="0 0 48 48" fill="none">
+      <path d="M24 5 6 12v11c0 11 7.6 18.3 18 20 10.4-1.7 18-9 18-20V12L24 5Z" fill="#E03E3E" opacity=".18"/>
+      <path d="M24 5 6 12v11c0 11 7.6 18.3 18 20 10.4-1.7 18-9 18-20V12L24 5Z" stroke="#E03E3E" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M24 16v10" stroke="#E03E3E" stroke-width="2.8" stroke-linecap="round"/>
+      <circle cx="24" cy="32.2" r="1.7" fill="#E03E3E"/>
+    </svg>
+  </div>
+
+  <span class="eyebrow">风 险 提 示</span>
+
+  <h1>反诈中心没告诉过你，<br>不要扫<em>来路不明</em>的二维码吗？</h1>
+
+  <div class="body">
+    <p>这张「电信反诈调研」的二维码，指向一个<span class="hl">陌生页面</span>。真正的问卷不需要你登录、不需要银行卡，更不会要验证码。</p>
+    <p>这一次只是被拦下来提醒你，下一次可能就是真的了。</p>
+  </div>
+
+  <button id="ok">我记住了，没有下次</button>
+  <p class="after" id="after"></p>
+
+  <p class="foot">本页面仅用于反诈提醒演示，不收集任何个人信息。<br>遇到可疑链接，可在「国家反诈中心」App 举报。</p>
+</main>
+
+<script>
+  document.getElementById('ok').addEventListener('click', function () {
+    var el = document.getElementById('after');
+    var lines = [
+      '已为你拦截 1 次「好奇」。',
+      '很好，这次没白扫。',
+      '记住：陌生的码，扫之前先停三秒。'
+    ];
+    el.textContent = lines[Math.floor(Math.random() * lines.length)];
+    el.classList.add('show');
+    this.textContent = '再提醒我一次';
+  });
+</script>
+</body>
+</html>
